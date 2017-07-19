@@ -1,0 +1,21 @@
+{
+  "name": "frd-app",
+  "description": "App hecha para el workshop",
+  "slug": "frdapp",
+  "sdkVersion": "14.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#09D7FF",
+  "privacy": "public",
+  "icon": "./icons/app.png",
+  "loading": {
+    "icon": "./icons/loading.png",
+    "backgroundColor": "#2c2829",
+    "hideExponentText": true
+  },
+  "packagerOpts": {
+    "assetExts": [
+      "ttf"
+    ]
+  }
+}
