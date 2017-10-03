@@ -17,7 +17,7 @@ const Scenes = { Info, Schedule, Talk };
 
 const DEFAULT_VIEW = 'Schedule';
 
-class FRDApp extends Component {
+class WorkshopApp extends Component {
   state = {
     ready: false,
   };
@@ -30,8 +30,7 @@ class FRDApp extends Component {
     const downloadAsset = asset => Asset.fromModule(asset).downloadAsync();
 
     await Promise.all([
-      downloadAsset(require('./scenes/Schedule/images/splash-logo.png')),
-      downloadAsset(require('./scenes/Info/images/thinkmill-logo.png')),
+      downloadAsset(require('./scenes/Schedule/images/workshop-delta3.jpg')),
       Font.loadAsync(Ionicons.font),
     ]);
 
@@ -111,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = FRDApp;
+module.exports = WorkshopApp;

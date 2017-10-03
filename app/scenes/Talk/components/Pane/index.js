@@ -9,13 +9,9 @@ import {
   View,
 } from 'react-native';
 import moment from 'moment';
-
 import type { ScheduleTalk } from '../../../../types';
-
 import { TIME_FORMAT } from '../../../../constants';
 import theme from '../../../../theme';
-import Avatar from '../../../../components/Avatar';
-
 import Preview from '../Preview';
 
 function Speaker({ data, onPress }) {
@@ -27,12 +23,11 @@ function Speaker({ data, onPress }) {
   return (
     <TouchableOpacity {...touchableProps}>
       <View style={styles.heroSpeaker}>
-        <Avatar source={data.avatar} />
         <Text style={styles.heroSpeakerName}>
           {data.name}
         </Text>
         <Text style={styles.heroSpeakerHint}>
-          (tap for more)
+          (más información)
         </Text>
       </View>
     </TouchableOpacity>

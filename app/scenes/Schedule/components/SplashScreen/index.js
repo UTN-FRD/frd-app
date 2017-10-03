@@ -154,31 +154,13 @@ export default class SplashScreen extends Component {
             }}
           >
             <Animated.Image
-              source={require('../../images/splash-logo.png')}
+              source={require('../../images/workshop-delta3.jpg')}
               style={{
                 transform: [{ translateY: logoSplashAlignmentOffset }],
               }}
             />
           </Animated.TouchableHighlight>
-          <Animated.View
-            style={[
-              styles.bottomTriangle,
-              {
-                transform: [{ skewY: interpolateToString(leftTriangleSkew) }],
-              },
-            ]}
-          />
-          <Animated.View
-            style={[
-              styles.bottomTriangle,
-              {
-                transform: [
-                  { skewY: interpolateToString(rightTriangleSkew) },
-                  { translateY: -5 },
-                ],
-              },
-            ]}
-          />
+
         </Animated.View>
       </Animated.View>
     );

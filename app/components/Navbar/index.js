@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     height: theme.navbar.height,
     overflow: 'hidden',
     justifyContent: 'space-between',
-    paddingTop: Platform.OS === 'ios' ? 20 : 0, // account for the statusbar
+    paddingTop: 0,
     position: 'absolute',
     width: Dimensions.get('window').width,
   },
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   buttonText: {
-    color: theme.color.blue,
-    fontSize: theme.fontSize.default,
+    color: theme.workshopColors.yellow,
+    fontSize: 16,//theme.fontSize.default,
   },
 
   // title

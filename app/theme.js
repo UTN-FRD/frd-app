@@ -40,15 +40,21 @@ const fontSize = {
   xlarge: 32,
 };
 
+const workshopColors = {
+  purple: '#362245',
+  yellow: '#ffc75a',
+  lightblue: '#3fb9be'
+}
+
 // Component Specific
 // ------------------------------
 
 // navbar
 const navbar = {
-  backgroundColor: 'white',
-  buttonColor: color.blue,
-  height: Platform.OS === 'ios' ? 64 : 44,
-  textColor: color.text,
+  backgroundColor: workshopColors.purple,
+  buttonColor: workshopColors.yellow,
+  height: 44,
+  textColor: 'white'
 };
 
 // list header
@@ -61,10 +67,12 @@ const nextup = {
   height: 70,
 };
 
+
 export default {
   color,
   fontSize,
   navbar,
   nextup,
   listheader,
+  workshopColors
 };

@@ -1,15 +1,18 @@
 {
-  "name": "frd-app",
-  "description": "App hecha para el workshop",
-  "slug": "frdapp",
+  "name": "Workshop Sistemas",
+  "description": "Aplicación hecha para el III Workshop de Ingeniería en Sistemas de Información (UTN-FRD).",
+  "slug": "workshopsistemas",
+  "android": {
+    "package": "com.frd.workshop"
+  },
   "sdkVersion": "14.0.0",
   "version": "1.0.0",
   "orientation": "portrait",
   "primaryColor": "#09D7FF",
   "privacy": "public",
-  "icon": "./icons/app.png",
+  "icon": "./icons/icono-utn.png",
   "loading": {
-    "icon": "./icons/loading.png",
+    "icon": "./icons/icono-utn.png",
     "backgroundColor": "#2c2829",
     "hideExponentText": true
   },

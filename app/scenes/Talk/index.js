@@ -154,17 +154,7 @@ export default class Talk extends Component {
       }
     );
   }
-  share = () => {
-    const { talk } = this.state;
-    const speakerHandle = talk.speaker.twitter
-      ? '@' + talk.speaker.twitter
-      : talk.speaker.name;
 
-    Share.share({
-      title: 'ReactConf 2017',
-      message: `Loving ${speakerHandle}'s talk "${talk.title}" #ReactConf2017`,
-    });
-  };
   toggleSpeakerModal = (data: Object) => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen,
@@ -227,8 +217,6 @@ export default class Talk extends Component {
         title={headerTitle}
         leftButtonIconName="ios-arrow-back"
         leftButtonOnPress={navigator.popToTop}
-        rightButtonText="Share"
-        rightButtonOnPress={this.share}
       />
     );
 
@@ -262,12 +250,9 @@ export default class Talk extends Component {
 
         {modalIsOpen &&
           <Speaker
-            avatar={modalSpeaker.avatar}
-            github={modalSpeaker.github}
             name={modalSpeaker.name}
             onClose={this.toggleSpeakerModal}
             summary={modalSpeaker.summary}
-            twitter={modalSpeaker.twitter}
           />}
         {navbar}
       </Scene>

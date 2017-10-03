@@ -10,10 +10,7 @@ export type ScheduleTalk = {
   summary: string,
   title: string,
   speaker: {
-    avatar: string,
-    github?: string,
     name: string,
-    twitter?: string,
     summary: string,
   },
   time: ScheduleTimeRange,

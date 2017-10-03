@@ -1,5 +1,5 @@
 // @flow
 import Exponent from 'exponent';
-import FRDApp from './app/FRDApp';
+import WorkshopApp from './app/WorkshopApp';
 
-Exponent.registerRootComponent(FRDApp);
+Exponent.registerRootComponent(WorkshopApp);

@@ -13,9 +13,7 @@ import {
   View,
 } from 'react-native';
 import moment from 'moment';
-
 import type { ScheduleTalk } from '../../types';
-
 import { TIME_FORMAT } from '../../constants';
 import talks, {
   getIndexFromId,
@@ -25,9 +23,7 @@ import talks, {
 import Navbar from '../../components/Navbar';
 import ListTitle from '../../components/ListTitle';
 import Scene from '../../components/Scene';
-
 import theme from '../../theme';
-
 import Break from './components/Break';
 import NowButton from './components/NowButton';
 import Talk, { TalkSeparator } from './components/Talk';
@@ -128,24 +124,6 @@ export default class Schedule extends Component {
       hasScrolled: Platform.OS === 'android',
     };
 
-    if (Platform.OS === 'ios') {
-      // This isn't relevant on Android.
-      this.scrollYListener = this.state.scrollY.addListener(({ value }) => {
-        if (!this.state.hasScrolled) {
-          this.setState({ hasScrolled: true });
-        }
-
-        if (value > 120) {
-          StatusBar.setBarStyle('default', true);
-          StatusBar.setHidden(false, true);
-        } else if (value < 80) {
-          StatusBar.setBarStyle('light-content', true);
-          StatusBar.setHidden(false, true);
-        } else {
-          StatusBar.setHidden(true, true);
-        }
-      });
-    }
   }
 
   componentWillUnmount() {
@@ -238,8 +216,9 @@ export default class Schedule extends Component {
         onPress={this.gotoEventInfo}
         activeOpacity={0.75}
       >
+        <Text>Para mas información</Text>
         <Text style={styles.link}>
-          Event Info
+          visitá la página
         </Text>
       </TouchableOpacity>
     );
@@ -259,16 +238,14 @@ export default class Schedule extends Component {
           style={[
             styles.navbar,
             {
-              // Small bug with native animations in iOS doesn't set the
-              // transform properly on initial render, should be fixed in 0.42
               opacity: this.state.hasScrolled ? 1 : 0,
               transform: [{ translateY: navbarTop }],
             },
           ]}
         >
           <Navbar
-            title="Schedule"
-            rightButtonText="About"
+            title="Cronograma"
+            rightButtonText="Info"
             rightButtonOnPress={this.gotoEventInfo}
           />
         </Animated.View>
@@ -342,7 +319,6 @@ export default class Schedule extends Component {
 
             return (
               <Talk
-                keynote={talk.keynote}
                 lightning={talk.lightning}
                 onLayout={onLayout}
                 onPress={onPress}
@@ -356,10 +332,10 @@ export default class Schedule extends Component {
           renderSectionHeader={(sectionData, sectionID) => (
             <ListTitle
               bordered={!!dataSource.sectionIdentities.indexOf(sectionID)}
-              text={sectionData}
+              text={""}
             />
           )}
-          renderFooter={renderFooter}
+         // renderFooter={renderFooter}
         />
 
         {showNowButton && <NowButton onPress={this.scrolltoActiveTalk} />}
@@ -382,7 +358,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   link: {
-    color: theme.color.blue,
+    color: theme.workshopColors.yellow,
     fontSize: theme.fontSize.default,
     fontWeight: '500',
     paddingVertical: theme.fontSize.large,

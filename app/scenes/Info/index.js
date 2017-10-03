@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Image,
   LayoutAnimation,
@@ -9,42 +9,35 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-} from 'react-native';
-import { Components } from 'exponent';
+  View
+} from "react-native";
+import { Components } from "exponent";
 const { MapView } = Components;
 
-import ListTitle from '../../components/ListTitle';
-import Navbar from '../../components/Navbar';
-import Scene from '../../components/Scene';
+import ListTitle from "../../components/ListTitle";
+import Navbar from "../../components/Navbar";
+import Scene from "../../components/Scene";
 
-import { list as organiserList } from '../../data/organisers';
-import theme from '../../theme';
-import { attemptToOpenUrl } from '../../utils';
+import theme from "../../theme";
+import { attemptToOpenUrl } from "../../utils";
 
-import CodeOfConduct from './components/CodeOfConduct';
-import Organiser from './components/Organiser';
-
-// Santa Clara, California
+// UTN - FRD, Campana, Buenos Aires, Argentina.
 const mapRegion = {
-  latitude: 37.391084,
-  longitude: -121.9746,
+  latitude: -34.179225,
+  longitude: -58.9624597,
   latitudeDelta: 0.01,
-  longitudeDelta: 0.01,
+  longitudeDelta: 0.01
 };
+
+const repoUrl = "https://github.com/UTN-FRD/frd-app";
 
 export default class Info extends Component {
   props: {
-    navigator: Object,
-    organisers: typeof organiserList,
+    navigator: Object
   };
 
   state = {
-    modalIsOpen: false,
-  };
-
-  static defaultProps = {
-    organisers: organiserList,
+    modalIsOpen: false
   };
 
   _marker: any;
@@ -69,108 +62,68 @@ export default class Info extends Component {
   };
 
   openMap() {
-    const latlon = `${mapRegion.latitude},${mapRegion.longitude}`;
-    const query = encodeURI('Santa Clara Marriott');
-    const url = Platform.OS === 'ios'
-      ? `maps://maps.apple.com/?ll=${latlon}&q=${query}`
-      : `https://maps.google.com/?ll=${latlon}&q=${query}`;
+    const position = `${mapRegion.latitude},${mapRegion.longitude}`;
+    const query = encodeURI("Facultad Regional Delta");
+    const url = `https://maps.google.com/?ll=${position}&q=${query}`;
 
-    attemptToOpenUrl(url);
-  }
-  openThinkmill() {
-    const url = 'https://www.thinkmill.com.au';
     attemptToOpenUrl(url);
   }
 
   openRepository() {
-    const url = 'https://github.com/Thinkmill/react-conf-2017';
-    attemptToOpenUrl(url);
+    attemptToOpenUrl(repoUrl);
   }
 
   render() {
-    const { navigator, organisers } = this.props;
+    const { navigator } = this.props;
     const { modalIsOpen } = this.state;
 
     return (
       <Scene>
         <Navbar
-          title="About"
+          title="Información"
           leftButtonIconName="ios-arrow-back"
           leftButtonOnPress={navigator.popToTop}
-          rightButtonText="Directions"
+          rightButtonText="Dirección"
           rightButtonOnPress={this.openMap}
         />
         <ScrollView>
           <MapView initialRegion={mapRegion} style={styles.map}>
             <MapView.Marker
               coordinate={mapRegion}
-              description="2700 Mission College Blvd, Santa Clara, CA 95054"
+              description="UTN - Facultad Regional Delta"
               onCalloutPress={this.openMap}
               ref={r => {
                 this._marker = r;
               }}
-              title="Santa Clara Marriott"
+              title="UTN-FRD"
             />
           </MapView>
 
           <View style={{ flex: 1 }}>
             <View style={styles.hero}>
               <Text style={styles.heroText}>
-                The conference will be taking place on March 13th and 14th, with talks from 10am to 6pm each day. Plan to hang out with us each evening for plenty of socializing over food and drink.
+                Un espacio de formación e intercambio para estudiantes, docentes, profesionales e investigadores vinculados a los Sistemas de Información.
               </Text>
-              <Text style={styles.heroText}>
-                Proceeds from all ticket sales are being donated to Code2040.
-              </Text>
-              <TouchableOpacity onPress={this.toggleModal} activeOpacity={0.75}>
-                <Text style={styles.heroLink}>
-                  Code of Conduct
-                </Text>
-              </TouchableOpacity>
+              <Text style={styles.heroText}></Text>
             </View>
 
-            <ListTitle text="Organizers" />
-            {organisers.map((organiser, idx) => {
-              const onPress = () => {};
-
-              return (
-                <Organiser
-                  avatar={organiser.avatar}
-                  key={idx}
-                  onPress={onPress}
-                  name={organiser.name}
-                  summary={organiser.summary}
-                />
-              );
-            })}
-
             <View style={styles.madeby}>
-              <TouchableOpacity
-                onPress={this.openThinkmill}
-                activeOpacity={0.75}
-                style={styles.madebyLink}
-              >
-                <Image
-                  source={require('./images/thinkmill-logo.png')}
-                  style={{ width: 80, height: 80 }}
-                />
-                {/* <Text style={[styles.madebyText, styles.madebyTitle]}>Made by Thinkmill</Text> */}
-              </TouchableOpacity>
               <Text style={styles.madebyText}>
-                This app made with love in Sydney, Australia and open sourced by Thinkmill
+                Esta aplicación fue realizada por la Software Factory - UTN FRD.
               </Text>
               <TouchableOpacity
                 onPress={this.openRepository}
                 activeOpacity={0.75}
               >
                 <Text style={styles.heroLink}>
-                  View Source Code
+                  Ver código fuente
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
         </ScrollView>
 
-        {!!modalIsOpen && <CodeOfConduct onClose={this.toggleModal} />}
+        {!!modalIsOpen}
       </Scene>
     );
   }
@@ -180,49 +133,48 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
     height: 200,
-    maxHeight: 200,
+    maxHeight: 200
   },
   // hero
   hero: {
-    alignItems: 'center',
-    backgroundColor: 'white',
+    alignItems: "center",
+    backgroundColor: "white",
     borderBottomColor: theme.color.gray20,
     borderBottomWidth: 1 / PixelRatio.get(),
     borderTopColor: theme.color.gray30,
     borderTopWidth: 1 / PixelRatio.get(),
-    paddingHorizontal: theme.fontSize.default,
+    paddingHorizontal: theme.fontSize.default
   },
   heroText: {
     paddingTop: theme.fontSize.xlarge,
     fontSize: theme.fontSize.default,
-    fontWeight: '300',
+    fontWeight: "300",
     lineHeight: theme.fontSize.large,
-    textAlign: 'center',
+    textAlign: "center",
   },
   heroLink: {
     color: theme.color.blue,
     fontSize: theme.fontSize.default,
-    fontWeight: '500',
-    padding: theme.fontSize.large,
+    fontWeight: "500",
+    padding: theme.fontSize.large
   },
 
-  // made by thinkmill
   madeby: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: theme.fontSize.default,
-    paddingVertical: theme.fontSize.xlarge,
+    paddingVertical: theme.fontSize.xlarge
   },
   madebyLink: {
-    alignItems: 'center',
+    alignItems: "center"
   },
   madebyText: {
     fontSize: theme.fontSize.default,
-    fontWeight: '300',
+    fontWeight: "300",
     lineHeight: theme.fontSize.large,
     marginTop: theme.fontSize.default,
-    textAlign: 'center',
+    textAlign: "center"
   },
   madebyTitle: {
-    fontWeight: '500',
-  },
+    fontWeight: "500"
+  }
 });
