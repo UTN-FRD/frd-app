@@ -3,10 +3,16 @@
   "description": "Aplicación hecha para el III Workshop de Ingeniería en Sistemas de Información (UTN-FRD).",
   "slug": "workshopsistemas",
   "android": {
-    "package": "com.frd.workshop"
+    "package": "com.frd.workshop",
+    "versionCode": 2,
+    "config": {
+      "googleMaps": {
+        "apiKey": "<MyKey>"
+      }
+    }
   },
   "sdkVersion": "14.0.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "orientation": "portrait",
   "primaryColor": "#09D7FF",
   "privacy": "public",

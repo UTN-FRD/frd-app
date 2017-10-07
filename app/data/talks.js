@@ -64,14 +64,23 @@ const data = {
       name: "Celia Cintas",
       summary: "Doctoranda en Ciencias de la Computación (UNS), Becaria CONICET en IPCSH-CENPAT en el Grupo de Investigación Evolutiva Humana. Pythonista desde 2008. Co-organizadora de SciPyCon Argentina (Latam) [2013, 2014] y Patagonia Python Meetup. Feliz miembro de Linuxchix Argentina. Entusiasta del software libre. Profesora de Fundamentos Teóricos de la Informática (UNPSJB)."
     },
-    time: getTime(WORKSHOP_DAY, 90)
+    time: getTime(WORKSHOP_DAY, 30)
   },
-  "robotica-industrial": {
+  "robotica-industrial-1": {
     summary: "El objetivo del taller es que el participante pueda interactuar con robots industriales y realizar una pequeña aplicación que permita integrar el robot industrial a traves de un kit de desarrollo de software con una aplicacion realizada en visual studio.",
-    title: "Robótica Industrial - Interfaces de comunicación con sistema de visión artificial",
+    title: "Robótica Industrial - Interfaces de comunicación con sistema de visión artificial 1",
     speaker: {
       name: "José Brizuela",
-      summary: "Ingeniero electrónico"
+      summary: 'Ingeniero electrónico, docente en UTN FRD en "Electrónica Aplicada" y "Laboratorio de Microcontroladores y DSP"'
+    },
+    time: getTime(WORKSHOP_DAY, 60)
+  },
+  "robotica-industrial-2": {
+    summary: "El objetivo del taller es que el participante pueda interactuar con robots industriales y realizar una pequeña aplicación que permita integrar el robot industrial a traves de un kit de desarrollo de software con una aplicacion realizada en visual studio.",
+    title: "Robótica Industrial - Interfaces de comunicación con sistema de visión artificial 2",
+    speaker: {
+      name: "José Brizuela",
+      summary: 'Ingeniero electrónico, docente en UTN FRD en "Electrónica Aplicada" y "Laboratorio de Microcontroladores y DSP"'
     },
     time: getTime(WORKSHOP_DAY, 60)
   },
@@ -92,15 +101,6 @@ const data = {
     speaker: {
       name: "Bruno Sagaste y Bruno Fernandez",
       summary: "Estudiantes de ingeniería en sistemas de información."
-    },
-    time: getTime(WORKSHOP_DAY, 15)
-  },
-  "automatismos-electronica": {
-    summary: "Desarrollos colectivos e integración de especialidades con pautas de trabajo en equipo. Simulación de salas de control y automatismo a distancia computarizados, para celdas de media tensión (M.T.). Sistemas orientados a la seguridad operativa.",
-    title: "Automatismo y electrónica digital",
-    speaker: {
-      name: "Agustin Gambirassi y J. Mauro Scavuzzo",
-      summary: "Agustin Gambirassi, estudiante de ingeniería en sistemas de información y J. Scavuzzo, ingeniero eléctrico."
     },
     time: getTime(WORKSHOP_DAY, 15)
   },
@@ -141,6 +141,17 @@ const data = {
       summary: "Ingeniero en Sistemas de Información de la Universidad Tecnológica Nacional F.R. Concepción del Uruguay. En 1997 comenzó a trabajar en una empresa de la ciudad de Campana y así comenzó a relacionarse con nuestra zona. Entre 2004 y 2005 realizo la Especialización en Ingeniería Gerencial. Desde 2013 es docente de la materia Administración Gerencial de la Ingeniería en Sistemas de Información. En 2016 defendió y aprobó su tesis de Maestría en Administración de Negocios en nuestra facultad."
     },
     time: getTime(WORKSHOP_DAY, 15)
+  },
+  "arena-ui": {
+    summary: "En la charla veremos las características de Arena, un desarrollo hecho por docentes para la enseñanza de interfaces de usuario: el diseño de controles gráficos, vistas y sus modelos y el poderoso concepto de binding para modificar la forma en que el alumno se introduce a la interacción entre el usuario y el modelo de dominio. La charla mostrará dos ejemplos prácticos: un conversor de millas a kilómetros y una aplicación para una encuestadora de intención de voto.",
+    title: "Arena, un framework de UI educativo y escalable",
+    speaker: {
+      name: "Fernando Dodino",
+      summary: `Fernando Dodino - Uqbar Project.
+      https://github.com/fdodino
+      Desde hace 20 años soy docente en diferentes universidades (actualmente en UTN FRBA, UNSAM y UNQ), actividad compartida con el desarrollo de aplicaciones en el ámbito privado (desde el año 2000 en Telecom Argentina). Inquieto investigador, estoy participando de los proyectos Wollok (www.wollok.org), Arena (http://arena.uqbar-project.org/) y XTrest (https://github.com/uqbar-project/xtrest).`
+    },
+    time: getTime(WORKSHOP_DAY, 25)
   },
   [br()]: {
     break: true,
@@ -184,16 +195,14 @@ const data = {
     },
     time: getTime(WORKSHOP_DAY, 25)
   },
-  "arena-ui": {
-    summary: "En la charla veremos las características de Arena, un desarrollo hecho por docentes para la enseñanza de interfaces de usuario: el diseño de controles gráficos, vistas y sus modelos y el poderoso concepto de binding para modificar la forma en que el alumno se introduce a la interacción entre el usuario y el modelo de dominio. La charla mostrará dos ejemplos prácticos: un conversor de millas a kilómetros y una aplicación para una encuestadora de intención de voto.",
-    title: "Arena, un framework de UI educativo y escalable",
+  "automatismos-electronica": {
+    summary: "Desarrollos colectivos e integración de especialidades con pautas de trabajo en equipo. Simulación de salas de control y automatismo a distancia computarizados, para celdas de media tensión (M.T.). Sistemas orientados a la seguridad operativa.",
+    title: "Automatismo y electrónica digital",
     speaker: {
-      name: "Fernando Dodino",
-      summary: `Fernando Dodino - Uqbar Project.
-      https://github.com/fdodino
-      Desde hace 20 años soy docente en diferentes universidades (actualmente en UTN FRBA, UNSAM y UNQ), actividad compartida con el desarrollo de aplicaciones en el ámbito privado (desde el año 2000 en Telecom Argentina). Inquieto investigador, estoy participando de los proyectos Wollok (www.wollok.org), Arena (http://arena.uqbar-project.org/) y XTrest (https://github.com/uqbar-project/xtrest).`
+      name: "Agustin Gambirassi y J. Mauro Scavuzzo",
+      summary: "Agustin Gambirassi, estudiante de ingeniería en sistemas de información y J. Scavuzzo, ingeniero eléctrico."
     },
-    time: getTime(WORKSHOP_DAY, 25)
+    time: getTime(WORKSHOP_DAY, 15)
   },
   [br()]: {
     break: true,
